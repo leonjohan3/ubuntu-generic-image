@@ -1,6 +1,6 @@
 FROM ubuntu:focal-20210217
 
-ENV UBUNTU_GENERIC_IMAGE_VERSION=0.0.1
+ENV UBUNTU_GENERIC_IMAGE_VERSION=1.0.0
 
 LABEL maintainer="leonjohan3@gmail.com" \
       io.openshift.s2i.scripts-url="image:///usr/libexec/s2i" \
@@ -17,6 +17,7 @@ RUN export DEBIAN_FRONTEND=noninteractive \
     && apt-get -y update \
     && apt-get -y install apt-utils \
     && apt-get -y reinstall apt libapt-pkg6.0 apt-utils \
+    && apt-get -y update \
     && apt-get -y upgrade -o Dpkg::Options::="--force-confold" \
     && apt-get -y update \
     && apt-get -y install ca-certificates locales tzdata runit curl less tree netcat-openbsd \
