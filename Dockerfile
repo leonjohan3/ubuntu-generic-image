@@ -25,7 +25,6 @@ RUN export DEBIAN_FRONTEND=noninteractive \
     && dpkg-reconfigure -f noninteractive tzdata \
     && apt-get -y clean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
-    && rm -r /usr/share/man \
     && rm -r /usr/share/doc
     
 ENV LANG=en_AU.UTF-8
