@@ -39,6 +39,6 @@ RUN update-locale LANG=en_AU.UTF-8 \
 COPY dot_bash_aliases ${APP_HOME}/.bash_aliases
 COPY dot_bash_aliases /root/.bash_aliases
 
-RUN chown -R default ${APP_HOME}
+RUN chown -R default ${APP_HOME} && chmod -R g-w ${APP_HOME} && chmod -R o-rwx ${APP_HOME}
 
 # Run as the default user (to be set in the leaf image)
