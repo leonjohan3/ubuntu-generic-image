@@ -5,4 +5,5 @@ alias base64='base64 --wrap=0'
 
 PS1=$(echo $PS1 | sed -e 's,\\$$, & ,')
 source /etc/default/locale
+umask u=rwx,g=rx,o=
 cd
