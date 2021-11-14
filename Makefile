@@ -6,7 +6,7 @@ DOCKER_REPO = leonjohan3atyahoodotcom/$(IMAGE_NAME)
 build:
 	git diff --quiet
 	test -z "$$(git status --porcelain)" || exit 1
-	docker build -t $(IMAGE_NAME) .
+	docker build --progress plain -t $(IMAGE_NAME) .
 	TAG=$$(docker image ls $(IMAGE_NAME) | head -2 | tail -1 | awk '{print $$3}') && docker tag $$TAG $(DOCKER_REPO)
 
 .PHONY: deploy
